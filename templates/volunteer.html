@@ -1,0 +1,132 @@
+{% extends "layout.html" %}
+{% set active_page = "volunteer" %}
+
+
+{% block title %}
+ | Volunteer
+{% endblock %}
+
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/volunteer.css') }}">
+{% endblock %}
+
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/volunteer.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/volunteerCrop.js') }}" defer></script>
+{% endblock %}
+
+
+{% block main %}
+    <!-- Start Header -->
+    <header class="masthead">
+        <div class="masthead-inner"></div>
+    </header>
+    <!-- End Header -->
+
+    <section class="content">
+        <div class="container">
+
+            <div class="form-intro text-center">
+                <h5>Interested in tutoring elementary, middle, and high school students while earning volunteer hours?</h5>
+                <p class="my-3">Fill out the form below to apply to become one of our tutors!</p>
+            </div>
+
+            <div class="application-form">
+                <form action="{{ url_for('volunteer') }}" method="POST" enctype="multipart/form-data" novalidate onsubmit="formLoading()">
+
+                    {{ form.hidden_tag() }}
+
+                    <!-- Name -->
+                    {{ render_field(form.name, show_label="true") }}
+
+                    <!-- Email -->
+                    {{ render_field(form.email, show_label="true") }}
+
+                    <!-- Grade --> 
+                    {{ render_field(form.grade, show_label="true") }}
+
+                    <div class="response-notice">
+                        <h6 class="mt-5 mb-1">The following responses will be shown under your name on our website.</h6>
+                        <p class="mb-4">Short answer limit: 300 characters</p>
+                    </div>
+
+                    <!-- Start Subjects -->
+                    <label for="subjects">Which subjects would you like to tutor?* (Note: you should ideally have achieved an A or gotten high AP scores in all related classes)</label>
+                    <div class="accordion" id="subjects">
+
+                        {% for subject in subject_dict %}
+                            <!-- {{ subject_display_names[subject] }} -->
+                            <div class="subject card" id="{{ subject }}-subject">
+                                <div class="card-header" id="{{ subject ~ 'Heading' }}">
+                                    <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{ subject ~ 'Collapse' }}" aria-expanded="true" aria-controls="{{ subject ~ 'Collapse' }}">
+                                        {{ subject_display_names[subject] }}
+                                    </button>
+                                    </h2>
+                                </div>
+                            
+                                <div id="{{ subject ~ 'Collapse' }}" class="collapse" aria-labelledby="{{ subject ~ 'Heading' }}">
+                                    <div class="card-body">
+                                        {{ render_field(form[subject]) }}
+                                        {{ render_field(form[subject ~ "Experience"], rows="3", show_label="true", onInput="textCounter(this, 300)") }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                    <!-- End Subjects -->
+
+                    <!-- Description -->
+                    {{ render_field(form.description, rows="3", show_label="true", onInput="textCounter(this, 300)") }}
+                        
+                    <!-- Motivation -->
+                    {{ render_field(form.motivation, rows="3", show_label="true", onInput="textCounter(this, 300)") }}
+
+                    <!-- Referral -->
+                    {{ render_field(form.referral, rows="3", show_label="true", onInput="textCounter(this, 300)") }}
+
+                    <!-- Extra -->
+                    {{ render_field(form.extra, show_label="true", onInput="textCounter(this, 300)") }}
+
+                    <!-- Image -->
+                    {{ render_field(form.image, show_label="true", accept=".jpg, .jpeg, .png") }}
+
+                    <div class="crop-text mb-3">
+                        <h6 class="mb-1">Drag your mouse over the image to crop (recommended)</h6>
+                        <p class="text-secondary">Note: Small images or extremely small crops may lead to blurry results.</p>
+                    </div>
+
+                    <table class="crop-table mb-3" cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            <tr class="row crop-row">
+                                <td class="col-12">
+                                    <div id="image-container"></div>
+                                </td>
+                                <td class="col-12">
+                                    <div id="preview-container"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="jc_coords">
+                        {{ render_field(form.x) }}
+                        {{ render_field(form.y) }}
+                        {{ render_field(form.w) }}
+                        {{ render_field(form.h) }}
+                    </div>
+
+                    <p>* required</p>
+
+                    <!-- Submit -->
+                    <div class="form-group">
+                        <button type="submit" class="submit-btn btn btn-lg">Apply</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,29 @@
+<!-- Code from flask documentation -->
+{% macro render_field(field) %}
+
+{% set class_ = 'form-field ' + kwargs.pop('class', '') %}
+{% set show_label_ = kwargs.pop('show_label', '') %}
+
+  <div class="form-group">
+    {% if show_label_ %}
+      {% if field.flags.required %}
+        {{ field.label(text = field.label.text + '*') }}
+      {% else %}
+        {{ field.label }}
+      {% endif %}
+    {% endif %}
+
+    {% if field.validators.DataRequired %}
+      {{ field.validators }}
+    {% endif %}
+
+    {{ field(class=class_, **kwargs)|safe }}
+
+    {% if field.errors %}
+      <div class="error text-danger text-align-left">
+        <i class="fas fa-exclamation-triangle"></i>
+        {{ field.errors[0] }}
+      </div>
+    {% endif %}
+  </div>
+{% endmacro %}

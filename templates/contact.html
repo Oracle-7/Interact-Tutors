@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% set active_page = "contact" %}
+
+
+{% block title %}
+ | Contact
+{% endblock %}
+
+
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+{% endblock %}
+
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/contact.js') }}" defer></script>
+{% endblock %}
+
+
+{% block main %}
+    <div class="background d-flex">
+        <div class="container m-auto p-3">
+            <div class="contact-form text-dark text-center">
+                
+                <div class="contact-wrap">
+                    <h1>Questions?</h1>
+                    <p class="my-2 text-muted">We'd love to help! Fill out this form and we'll respond as soon as possible.</p>
+
+                    <div class="form-wrap">
+                        <form method="POST" action="{{ url_for('contact') }}" autocomplete="off" novalidate onsubmit="formLoading()">
+
+                            {{ form.hidden_tag() }}
+
+                            <!-- Name -->
+                            {{ render_field(form.name) }}
+
+                            <!-- Email -->
+                            {{ render_field(form.email) }}
+
+                            <!-- Subject -->
+                            {{ render_field(form.subject) }}
+
+                            <!-- Message -->
+                            {{ render_field(form.message, rows="5") }} 
+
+                            <!-- Submit -->
+                            <div class="form-group">
+                                <button type="submit" class="submit-btn btn btn-lg">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+{% endblock %}
+

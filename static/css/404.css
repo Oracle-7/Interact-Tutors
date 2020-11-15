@@ -1,0 +1,42 @@
+.background {
+    height: 100vh;
+    background-image: url("../img/site/404/background.jpg");
+    background-size: cover;
+}
+
+.content {
+    transform: translateY(-5%);
+}
+
+.content h1 {
+    font-size: 8.5rem;
+}
+
+.home-btn {
+    background-color: #52c4b4;
+    padding: 1rem 1.7rem;
+    font-size: 1.4rem;
+    margin-top: 2rem;
+}
+
+.home-btn:hover {
+    background-color: #40b2a2;
+}
+
+/*=============== MEDIA QUERIES ===============*/
+
+/* Everything smaller than medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+    .content h1 {
+        font-size: 8rem;
+    }
+
+    .content h3 {
+        font-size: 2rem;
+    }
+
+    .home-btn {
+        padding: 0.9rem 1.6rem;
+        font-size: 1.3rem;
+    }
+}

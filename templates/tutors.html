@@ -1,0 +1,243 @@
+{% extends "layout.html" %}
+{% set active_page = "tutors" %}
+
+
+{% block title %}
+ | Find a Tutor
+{% endblock %}
+
+
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/tutors.css') }}">
+{% endblock %}
+
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/tutors.js') }}" defer></script>
+{% endblock %}
+
+
+{% block main %}
+    <!-- Start Header -->
+    <header class="masthead">
+        <div class="masthead-inner d-flex">
+            <div class="container my-auto text-center">
+
+                <div class="masthead-text">
+                
+                    <h2 class="my-4">Which subject do you need a tutor for?</h2>
+                    <div class="search-box">
+                        <form class="search-form" method="POST" action="{{ url_for('tutors') }}">
+                            <select class="selectpicker" name="subject-search" data-live-search="true" title="Click here to select">
+                                
+                                {% for subject in subject_dict %}
+                                    <!-- {{ subject_display_names[subject] }} -->
+                                    <optgroup label="{{ subject_display_names[subject] }}">
+                                        {% for class in subject_dict[subject] %}
+                                            {% if class == className %}
+                                                <option data-tokens="{{ subject }}" selected>{{ class }}</option>
+                                            {% else %}
+                                                <option data-tokens="{{ subject }}">{{ class }}</option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </optgroup>
+                                {% endfor %}
+
+                            </select><button type="submit" name="search-submit" class="search-btn btn"><i class="fa fa-search"></i></button>
+                            <input type="submit" style="display: none" />
+                        </form>
+                    </div>
+                    <a class="process-info mt-3 btn" data-toggle="modal" data-target="#process-modal">How does the process work?</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Header -->
+    
+    <!-- Start Process Info modal -->
+    <div class="modal fade bd-example-modal-lg" id="process-modal" tabindex="-1" role="dialog" aria-labelledby="processModal" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title mx-auto text-center">How does the process work?</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-text">
+                       <div class="container">
+
+                            <div class="row mb-3">
+
+                                <div class="col-sm-2 text-center">
+                                    <div class="process-circle d-inline-block">
+                                        <h3 class="process-number">1</h3>
+                                    </div>
+                                </div>
+                                <div class="col-sm-10 d-flex align-items-center">
+                                    <p>Search for tutors based on the subject(s) your child needs help with</p>
+                                </div>
+
+                            </div>
+                            <div class="row mb-3">
+
+                                <div class="col-sm-2 text-center">
+                                    <div class="process-circle d-inline-block">
+                                        <h3 class="process-number">2</h3>
+                                    </div>
+                                </div>
+                                <div class="col-sm-10 d-flex align-items-center">
+                                    <p>Contact all tutors you feel would be suitable for your child and request a session</p>
+                                </div>
+
+                            </div>
+                            <div class="row mb-3">
+
+                                <div class="col-sm-2 text-center">
+                                    <div class="process-circle d-inline-block">
+                                        <h3 class="process-number">3</h3>
+                                    </div>
+                                </div>
+                                <div class="col-sm-10 d-flex align-items-center">
+                                    <p>Schedule test sessions with any of the tutors who respond to your request</p>
+                                </div>
+
+                            </div>
+                            <div class="row">
+
+                                <div class="col-sm-2 text-center">
+                                    <div class="process-circle d-inline-block">
+                                        <h3 class="process-number">4</h3>
+                                    </div>
+                                </div>
+                                <div class="col-sm-10 d-flex align-items-center">
+                                    <p>Confirm each subsequent tutoring session <a href="{{ url_for('confirm_session') }}">here</a> so we can give your tutor their volunteering hours</p>
+                                </div>
+                                
+                            </div>
+
+                            <p class="text-muted mt-4 text-center">That's it! Still have questions? <a href="{{ url_for('contact') }}">Contact us!</a></p>
+
+                       </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Got it!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Process Info modal -->
+
+    <!-- Start Content section -->
+    <section class="content">
+        <div class="container">
+
+            {% if not tutors %}
+                {% if className %}
+                    <h6 class=" w-100 text-center">Sorry, we currently have no tutors for this subject. Please check back again later.</h6>
+                {% else %}
+                    <h6 class=" w-100 text-center">Sorry, we currently have no registered tutors. Please check back again later.</h6>
+                {% endif %}
+            {% else %}
+                <div class="card-deck">
+                    <div class="row w-100 m-0">
+                        
+                        {% for tutor in tutors %}
+                            <div class="card-container col-md-6 col-lg-4 col-xl-3">
+                                <div class="card">
+                                    <img class="card-img-top" src="{{ url_for('static', filename='img/tutors/') ~ tutor.image }}" alt="Profile picture">
+
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ tutor.name }}</h5>
+                                        <h6 class="card-subtitle text-muted mb-2">{{ tutor.grade }}th Grade</h6>
+                                        {% if "{{ tutor.name }}"|length > 15 %}
+                                            <p class="card-text">{{ tutor.description|truncate(212, False, "...", 0) }}</p>
+                                        {% else %}
+                                            <p class="card-text">{{ tutor.description|truncate(246, False, "...", 0) }}</p>
+                                        {% endif %}
+                                    </div>
+
+                                    <div class="card-bottom">
+                                        <button class="more-btn btn" data-toggle="modal" data-target="#{{ 'modal' ~ tutor.tutorID }}">Read More</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal fade bd-example-modal-lg" id="{{ 'modal' ~ tutor.tutorID }}" tabindex="-1" role="dialog" aria-labelledby="tutorModal" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3 class="modal-title mx-auto">{{ tutor.name }}</h3>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img class="modal-img-top" src="{{ url_for('static', filename='img/tutors/') ~ tutor.image }}" alt="Profile picture">
+                                            <div class="modal-text">
+
+                                                <!-- Description -->
+                                                <p class="modal-text-category">Description</p>
+                                                <p>{{ tutor.description }}</p>
+
+                                                <!-- Motivation -->
+                                                <p class="modal-text-category">Motivations for Tutoring</p>
+                                                <p>{{ tutor.motivation }}</p>
+
+                                                <!-- Subjects -->
+                                                {% if tutor.subjects and not className %}
+                                                    <p class="modal-text-category">Subjects</p>
+                                                    <ul>
+                                                        {% if tutor.subjects|is_string %}
+                                                            <li>{{ tutor.subjects }}</li>
+                                                        {% else %}
+                                                            {% for subject in tutor.subjects %}
+                                                                <li>{{ subject }}</li>
+                                                            {% endfor %}
+                                                        {% endif %}
+                                                    </ul>
+                                                {% endif %}
+
+                                                <!-- Qualifiications -->
+                                                {% if className %}
+                                                    <p class="modal-text-category">Qualifications for {{ className }}</p>
+                                                    <p>{{ tutor[subject ~ "Experience"] }}</p>
+                                                {% else %}
+                                                    {% for subject in subjects %}
+                                                        {% if tutor[subject ~ "Experience"] %}
+    
+                                                            {% if subject == "cs" %}
+                                                                <p class="modal-text-category">Qualifications for {{ subject|upper }}</p>
+                                                            {% elif subject == "speech" %}
+                                                                <p class="modal-text-category">Qualifications for Speech and Debate</p>
+                                                            {% else %}
+                                                                <p class="modal-text-category">Qualifications for {{ subject|capitalize }}</p>
+                                                            {% endif %}
+                                                            <p>{{ tutor[subject ~ "Experience"] }}</p>
+    
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endif %}
+
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <a type="button" class="btn contact-btn" href="mailto: {{ tutor.email }}">Contact</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            {% endif %}
+
+        </div>
+    </section>
+    <!-- End Content section -->
+{% endblock %}
+

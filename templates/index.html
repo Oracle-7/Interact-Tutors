@@ -1,0 +1,211 @@
+{% extends "layout.html" %}
+{% set active_page = "index" %}
+
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+
+{% block main %}
+    <!-- Start Header -->
+    <header class="masthead d-flex">
+        <div class="container my-auto">
+
+            <div class="row">
+                <div class="col-12 text-center masthead-text">
+                    <h1>Guiding Students to Academic Success</h1>
+                    <div class="border-top w-75 mx-auto my-3"></div>
+                    <p class="lead mb-4">Free one-on-one virtual tutoring from qualified and dedicated high school students</p>
+                    <a href="{{ url_for('tutors') }}" class="btn btn-xxl btn-light">Find a Tutor</a>
+                    <div class="d-block d-md-none"></div>
+                    <a href="#process" class="btn btn-xxl btn-outline-light js-scroll-trigger">Learn More</a>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- Start Process section -->
+    <section id="process" class="main-section">
+        <div class="container">
+
+            <div class="col-12">
+                <h2 class="mb-2">How It Works</h2>
+                <div class="heading-underline mx-auto mt-4 mb-5"></div>
+            </div>
+
+            <div class="row pt-3 pb-4">
+
+                <div class="col-md-6 col-lg-3 process-step">
+                    <i class="fas fa-search fa-4x m-2"></i>
+                    <h5 class="my-2">Search</h5>
+                    <p>Search for available tutors based on your child's subject and grade</p>
+                    <div class="arrow"></div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 process-step">
+                    <i class="fas fa-envelope fa-4x m-2"></i>
+                    <h5 class="my-2">Contact</h5>
+                    <p>Contact the tutors you feel are best suited for your child's needs and abilities</p>
+                    <div class="arrow"></div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 process-step">
+                    <i class="fas fa-calendar-alt fa-4x m-2"></i>
+                    <h5 class="my-2">Schedule</h5>
+                    <p>Work with your tutor to schedule sessions at times convenient for you</p>
+                    <div class="arrow"></div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 process-step">
+                    <i class="fas fa-book-open fa-4x m-2"></i>
+                    <h5 class="my-2">Learn</h5>
+                    <p>Improve your child's academic skills through accomplished high school students</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- End Process section -->
+
+    <!-- Start About section -->
+    <section id="about" class="main-section bg-gray">
+        <div class="container">
+
+            <div class="col-9 mx-auto">
+
+                <h2 class="mb-2">About Us</h2>
+                <div class="heading-underline mx-auto mt-4 mb-5"></div>
+
+                <p class="lead">Interact Tutors is a free online tutoring service targeted towards
+                    elementary, midle, and high school students started by members of Monta Vista Interact, a 
+                    volunteer club committed to providing Service over Self. As students face a 
+                    significant educational gap during quarantine due to the lack of their usual 
+                    teacher and peer support, we aim to solidify students' learning foundations
+                    and support their academic journeys through these tough months. 
+                </p>
+                <p class="lead">
+                    We offer tutors for a wide variety of both school-taught and extracurricular academic subjects in different fields, 
+                    ranging from language arts to biology to machine learning, and will help you with your specific needs,
+                    whether your child needs help on a current academic subject or needs a headstart on a subject they're planning to take. 
+                    Our tutors are high-performing students from Monta Vista High School who have chosen to volunteer in support 
+                    of our cause and possess significant experience in the subjects they choose to tutor as well as a genuine desire to help 
+                    others in the process.
+                </p>
+                <p class="lead">
+                    Our classes are all delivered through Zoom, a free and widely-used online conferencing service that provides various tools
+                    and functions to allow for smooth, uninterrupted lessons.
+                </p>
+                <a href="/contact" class="btn btn-xxl btn-dark js-scroll-trigger mt-4">Questions?</a>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- End About section -->
+
+    <!-- Start WhyUs section -->
+    <section id="why-us" class="main-section text-white">
+        <div class="container">
+
+        <div class="col-10 mx-auto">
+            <h2 class="mb-2">Why Interact Tutors?</h2>
+            <div class="heading-underline mx-auto my-5"></div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-4 reason">
+                <h3>Personalized</h3>
+                <i class="fas fa-user-check fa-5x my-4"></i>
+                <p>Unlike other free tutoring services who pair your child with a random tutor,
+                we offer you a full list of tutors suitable for your child and let
+                you pick the right one for your own needs.</p>
+            </div>
+
+            <div class="col-lg-4 reason">
+                <h3>Flexible</h3>
+                <i class="fas fa-user-clock fa-5x my-4"></i>
+                <p>Online learning lets you work with your tutor to schedule lessons at times convenient for you
+                    and easily reschedule whenever lessons conflict with other activities.</p>
+            </div>
+
+            <div class="col-lg-4 reason">
+                <h3>Relatable</h3>
+                <i class="fas fa-people-arrows fa-5x my-4"></i>
+                <p>Our high school tutors have first-hand experience with how subject curriculums 
+                    are currently taught and can relate to your child's struggles, making tutoring 
+                    a more fun and interactive experience.</p>
+            </div>
+
+        </div>
+
+        </div>
+    </section>
+    <!-- End WhyUs section -->
+
+    <!-- Start Subjects section -->
+    <section id="subjects" class="main-section">
+        <div class="container">
+
+            <div class="col-10 mx-auto">
+                <h2 class="mb-2">Subjects We Offer</h2>
+                <div class="heading-underline mx-auto my-5"></div>
+            </div>
+
+            {% for subject in subject_dict %}
+                <!-- Start {{ subject_display_names[subject] }} subject -->
+                <div class="row subject">
+                    {% if loop.index0 % 2 == 0 %}
+                        <div class="col-md-5 subject-image">
+                            <img class="w-100 h-100" src="{{ url_for('static', filename='img/site/index/' ~ subject ~ '.jpg') }}" alt="{{ subject_display_names[subject] }} image">
+                        </div>
+
+                        <div class="col-md-6 offset-md-1">
+                            <h3>{{ subject_display_names[subject] }}</h3>
+        
+                            <ul class="list-unstyled row">
+                                {% for class in subject_dict[subject] %}
+                                    <li class="list-group-item col-md-6">{{ class }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% else %}
+                        <div class="col-md-5 offset-md-1 subject-image order-first order-md-last">
+                            <img class="w-100 h-100" src="{{ url_for('static', filename='img/site/index/' ~ subject ~ '.jpg') }}" alt="{{ subject_display_names[subject] }} image">
+                        </div>
+        
+                        <div class="col-md-6">
+                            <h3>{{ subject_display_names[subject] }}</h3>
+        
+                            <ul class="list-unstyled row">
+                                {% for class in subject_dict[subject] %}
+                                    <li class="list-group-item col-md-6">{{ class }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>                
+            {% endfor %}
+            
+            <p class="text-dark">Have a suggestion for an additional subject? <a href="{{ url_for('contact') }}">Contact us!</a></p>
+
+        </div>
+    </section>
+    <!-- End Subjects section -->
+
+    <!-- Start Jumbotron section -->
+    <section class="cta jumbotron text-center">
+        <div class="container">
+
+            <h3>Need a tutor for your child?</h3>
+            <a href="{{ url_for('tutors') }}" class="cta-btn btn btn-xl btn-light js-scroll-trigger">Find a tutor now!</a>
+            
+        </div>
+    </section>
+    <!-- End Jumbotron section -->
+{% endblock %}
+

@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% set active_page = "confirm" %}
+
+
+{% block title %}
+ | View my Hours
+{% endblock %}
+
+
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/hours.css') }}">
+{% endblock %}
+
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/hours.js') }}" defer></script>
+{% endblock %}
+
+
+{% block main %}
+    <div class="background d-flex">
+        <div class="container m-auto p-3">
+            <div class="hours-form text-dark">
+                <div class="hours-wrap">
+                
+                    <h5 class="text-center">Please fill out this form to view your volunteer tutoring hours.</h5>
+                
+                    <div class="form-wrap">
+                        <form method="POST" action="{{ url_for('hours') }}" autocomplete="off" novalidate onsubmit="formLoading()">
+                    
+                            {{ form.hidden_tag() }}
+                    
+                            <!-- Email -->
+                            {{ render_field(form.email, show_label="true") }}
+                    
+                            <!-- Submit -->
+                            <div class="form-group text-center">
+                                <button type="submit" class="submit-btn btn btn-lg">Confirm Hours</button>
+                            </div>
+                    
+                        </form>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

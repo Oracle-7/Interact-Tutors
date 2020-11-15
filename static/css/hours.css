@@ -1,0 +1,102 @@
+/*=============== BACKGROUND ===============*/
+.background {
+    background: linear-gradient(#000c, #0008), url("../img/site/hours/background.jpg");
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.background .container {
+    width: auto;
+}
+
+/*=============== FORM ===============*/
+.hours-form {
+    padding: 2rem;
+    background-color: #ffffffea;
+}
+
+.hours-form .error {
+    text-align: left !important;
+}
+
+.hours-wrap {
+    width: 80%;
+    margin: auto;
+}
+
+.form-wrap {
+    margin-top: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-field {
+    font-size: 1.05rem !important;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #52c4b4;
+    width: 100%;
+}
+
+textarea.form-field {
+    min-height: 3.5rem;
+    max-height: 10rem;
+}
+
+.submit-btn {
+    background-color: #52c4b4;
+}
+
+.submit-btn:hover {
+    background-color: #32a494;
+}
+
+.spinner-border {
+    margin-right: 0.5rem;
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+/*=============== MEDIA QUERIES ===============*/
+
+/* Everything smaller than extra large devices (large desktops, 1200px and up) */
+@media (max-width: 1200px) {
+    .hours-form h5 {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* Everything smaller than large devices (desktops, 992px and up) */
+@media (max-width: 992px) {
+
+    .hours-wrap {
+        width: 90%;
+    }
+}
+
+/* Everything smaller than medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+    .background {
+        min-height: calc(100vh - 4.125rem);
+    }
+    
+    .hours-form h5 {
+        font-size: 1.2rem;
+    }
+
+    .hours-wrap {
+        width: 100%;
+    }
+}
+
+/* Very small devices */
+@media (max-width: 375px) {
+    .hours-form {
+        padding: 1.5rem;
+        min-width: 20rem;
+    }
+}

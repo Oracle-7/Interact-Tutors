@@ -1,0 +1,282 @@
+html {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+}
+
+/*=============== GENERAL ===============*/
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: 700 !important;
+}
+
+h1 {
+    font-size: 3.5rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 2.5rem;
+}
+
+h4 {
+    font-size: 2rem;
+}
+
+h5 {
+    font-size: 1.75rem;
+}
+
+h6 {
+    font-size: 1.5rem;
+}
+
+/* Buttons */
+.btn {
+    font-weight: 500;
+    transition: 0.5s ease;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.btn-light:hover {
+    background-color: #d2d6da;
+    border-color: #cad0d5;
+}
+
+.btn-xl {
+    padding: .65rem 1.15rem;
+    font-size: 1.25rem;
+    line-height: 1.6;
+}
+
+.btn-xxl {
+    padding: .75rem 1.25rem;
+    font-size: 1.3rem;
+    line-height: 1.65;
+}
+
+
+/*=============== MAIN SECTIONS ===============*/
+.main {
+    position: relative;
+}
+
+.main-section {
+    padding: 7rem 0;
+    text-align: center;
+}
+
+.main-section h2 {
+    font-weight: 900 !important;
+}
+
+.bg-gray {
+    background-color: #e9ecef;
+}
+
+
+/*=============== NAVBAR ===============*/
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    height: 2.9rem;
+    width: 2.9rem;
+}
+
+.navbar-brand h3 {
+    font-size: 1.8rem;
+    letter-spacing: -0.2px;
+}
+
+.navbar {
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: 0.4s;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+}
+
+.bg-dark-custom {
+    background-color: #343a40fb !important;
+}
+
+.nav-item {
+    padding: 0 2rem;
+}
+
+.nav-link {
+    color: #fff !important;
+    letter-spacing: 0.02rem;
+    text-shadow: 0.0625rem 0.0625rem 0.2rem #000C;
+    transition: color 0.4s ease;
+}
+
+.nav-link.active,
+.nav-link:hover {
+    color: #52c4b4 !important;
+}   
+
+.navbar-cta {
+    color: #52c4b4 !important;
+    border: 2px solid #52c4b4;
+    position: relative;
+    transition: 0.5s ease;
+    overflow: hidden;
+    text-shadow: none;
+    font-weight: 700;
+    border-radius: 50em;
+    margin-left: 2.5rem;
+}
+
+.navbar-cta:hover {
+    transform: scale(1.05);
+    background-color: #52c4b4;
+    color: #fff !important;
+}
+
+.navbar-cta::before,
+.navbar-cta::after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.4);
+    position: absolute;
+    transform: rotate(45deg);
+    transition: 0.5s ease;
+    mix-blend-mode: multiply !important;
+}
+
+.navbar-cta::before {
+    left: -70%;
+    bottom: -190%;
+}
+
+.navbar-cta::after {
+    right: -70%;
+    top: -190%;
+}
+
+.navbar-cta:hover::before {
+    left: 10%;
+    bottom: -70%;
+}
+
+.navbar-cta:hover::after {
+    right: 10%;
+    top: -70%;
+}
+
+/*=============== ALERTS ===============*/
+.alerts {
+    position: fixed;
+    margin-top: 4.125rem;
+    z-index: 999;
+    width: 100%;
+    opacity: 95%;
+}
+
+.alerts .alert {
+    border-radius: 0 !important;
+}
+
+
+/*=============== FOOTER ===============*/
+.footer {
+    padding: 0.8rem 0;    
+}
+
+.footer p {
+    margin-bottom: 0.5rem !important;
+}
+
+.footer a {
+    color: white !important;
+    transition: 0.4s;
+}
+
+.footer a:hover {
+    color: #40b2a2 !important;
+    cursor: pointer;
+}
+
+
+/*=============== MEDIA QUERIES ===============*/
+
+/* Everything smaller than extra large devices (large desktops, 1200px and up) */
+@media (max-width: 1200px) {
+    .main {
+        margin-top: 4.125rem;
+    }
+
+    /* Navbar */
+    .navbar {
+        text-align: center;
+        background-color: #343a40fb !important;
+    }
+
+    .navbar-cta {
+        margin: 0.6rem 2.5rem 0 2.5rem;
+        display: inline-block;
+    }
+
+    /* Footer */
+    .footer p {
+        font-size: 1rem;
+        margin-bottom: 0.7rem;
+    }
+}
+
+/* Everything smaller than large devices (desktops, 992px and up) */
+@media (max-width: 992px) {
+    /* Footer */
+    .footer p {
+        font-size: 0.85rem;
+    }
+}
+
+/* Everything smaller than medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+    .alerts {
+        margin-top: 0;
+    }
+
+    /* Footer */
+    .footer p {
+        font-size: 0.8rem;
+    }
+}
+
+/* Everything smaller than small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+    .navbar-brand h3 {
+        display: none;
+    }
+}
+
+/* Bootstrap Breakpoints:
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... } */

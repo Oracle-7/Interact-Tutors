@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JCrop Test</title>
+
+        <link rel="stylesheet" href="../static/css/jquery.Jcrop.min.css">
+        <link rel="stylesheet" href="../static/css/test.css">
+
+        <script src="../static/js/jquery-3.5.1.min.js"></script>
+        <script src="../static/js/jquery.Jcrop.min.js" defer></script>
+        <script src="../static/js/test.js" defer></script>
+
+    </head>
+
+    <body>
+
+        <form id="form">
+            <h1>Client-side image-editor and uploader</h1>
+            <h2>Image file select</h2>
+            <input id="file" type="file">
+            <h6 class="crop-text">Drag your mouse over the image to crop</h6>
+        </form>
+
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+                <tr>
+                    <td>
+                        <div id="image-container">
+                        </div>
+                    </td>
+                    <td>
+                        <div id="preview-container">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="jc_coords">
+            <form action="">
+                <input type="hidden" size="4" id="x" name="x">
+                <input type="hidden" size="4" id="y" name="y">
+                <input type="hidden" size="4" id="x2" name="x2">
+                <input type="hidden" size="4" id="y2" name="y2">
+                <input type="hidden" size="4" id="w" name="w">
+                <input type="hidden" size="4" id="h" name="h">
+            </form>
+        </div>
+
+    </body>
+
+</html>

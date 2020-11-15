@@ -1,0 +1,201 @@
+/*=============== MASTHEAD ===============*/
+.masthead {
+    background: linear-gradient(#000B, #0008), url("../img/site/index/masthead.jpg");
+    background-size: cover;
+    min-height: 30vh;
+    color: #fff;
+}
+
+.masthead-text h1 {
+    font-size: 3.8rem;
+    text-shadow: 0.1rem 0.1rem 0.5rem #0006;
+}
+
+/*=============== CONTENT ===============*/
+.content {
+    margin-top: -5.59rem;
+    padding-top: 3rem;
+    padding-bottom: 6rem;
+    min-height: 70.8vh;
+}
+
+/* Nav tabs */
+.nav-tabs {
+    border-bottom: 0;
+}
+
+.nav-tabs .nav-link {
+    text-shadow: none;
+    transition: 0.2s;
+}
+
+.nav-tabs .nav-link:hover {
+    text-shadow: none;
+    transition: 0.2s;
+    border-color: transparent;
+}
+
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link.active {
+    background-color: #fff;
+    color: #000 !important;
+}
+
+/* Cards */
+.card-container {
+    margin-top: 1rem;
+    margin-bottom: 1rem; 
+}
+
+.card {
+    margin: 0 !important;
+    height: 34rem;
+    overflow: auto;
+    box-shadow: 0.1rem 0.1rem 0.1rem #0001;
+}
+
+.card-top {
+    padding: 1rem 1rem 0 1rem;
+}
+
+.card-img-top {
+    height: 11rem;
+    object-fit: cover;
+    object-position: center;
+    border-bottom: 2px solid #0002;
+}
+
+.card-title {
+    margin-bottom: 0.7rem;
+    text-align: center;
+}
+
+.card-subtitle {
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.card-body {
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+}
+
+.card-bottom {
+    padding: 0 1.25rem .75rem 1.25rem;
+    text-align: center;
+}
+
+.more-btn {
+    background-color: #52c4b4;
+    color: white;
+    padding: 0.4rem 0.9rem;
+    font-size: 1.15rem;
+    box-shadow: none !important;
+}
+
+.more-btn:hover {
+    background-color: #40b2a2;
+    color: white;
+}
+
+
+/* Modals */
+.modal-lg {
+    max-width: 600px;
+}
+
+.modal-header {
+    padding-bottom: 0.5rem;
+}
+
+.modal-header h3 {
+    font-size: 2.4rem;
+    text-align: center;
+}
+
+.modal-header .close {
+    margin: -1rem -1rem -1rem 0;
+    outline: 0;
+}
+
+.modal-img-top {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    height: 20rem;
+}
+
+.modal-text {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
+}
+
+.modal-text-category {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #000;
+    margin-bottom: 0;
+}
+
+.contact-btn {
+    background-color: #ef7500;
+    color: white !important;
+    padding: 0.5rem 1.3rem;
+}
+
+.contact-btn:hover {
+    background-color: #da6712;
+}
+
+
+/*=============== MEDIA QUERIES ===============*/
+/* Everything smaller than large devices (desktops, 992px and up) */
+@media (max-width: 992px) {
+    .masthead-text h1 {
+        font-size: 3rem;
+    }
+
+    .card-img-top {
+        height: 13rem;
+    }
+}
+
+/* Everything smaller than medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+    .masthead {
+        min-height: calc(30vh - 4.125rem)
+    }
+
+    .content {
+        margin-top: -5.1rem;
+    }
+
+    .nav-tabs .nav-item {
+        padding: 0 1rem;
+    }
+
+    .nav-tabs .nav-link {
+        padding: 0.3rem 0.8rem
+    }
+}
+
+/* Everything smaller than small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+    .masthead-text h1 {
+        font-size: 2.3rem;
+    }
+}
+
+/* Very small devices */
+@media (max-width: 400px) {    
+    .nav-tabs .nav-item {
+        padding: 0 0.1rem;
+    }
+}
+
+/* Very short devices */
+@media (max-height: 700px) {
+    .masthead {
+        min-height: calc(40vh - 4.125rem)
+    }
+}

@@ -1,0 +1,40 @@
+body {
+    font-family: Arial;
+}
+
+#preview-container {
+    overflow: hidden;
+    margin-left: 0.5rem;
+    /* box-shadow: 0.1rem 0.1rem 0.4rem #777; */
+    border: 0.125rem solid #fff;
+}
+
+.crop-text {
+    display: none;
+}
+
+/* .jc_coords {
+    width: 500px;
+}
+
+.jc_coords form {
+    margin: .5em 0;
+    padding: .5em;
+    border: 1px solid;
+    background: #ccc;
+    border-color: #C3C3C3 #8B8B8B #8B8B8B #C3C3C3;
+}
+
+.jc_coords label {
+    margin-right: .5em;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+div.jc_coords input {
+    width: 3.5em;
+}
+
+input[type="text" i] {
+    padding: 1px 2px;
+} */

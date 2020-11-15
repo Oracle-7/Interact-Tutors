@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% set active_page = "confirm" %}
+
+
+{% block title %}
+ | Confirm a Session
+{% endblock %}
+
+
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/confirmSession.css') }}">
+{% endblock %}
+
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/confirmSession.js') }}" defer></script>
+{% endblock %}
+
+
+{% block main %}
+    <div class="background d-flex">
+        <div class="container m-auto p-3">
+            <div class="confirm-form text-dark">
+
+                <div class="confirm-wrap">
+                    <h5 class="text-center">Please fill out this form to confirm your tutoring session so we can give your tutor the appropriate volunteer hours!</h5>
+        
+                    <div class="form-wrap">
+                        <form method="POST" action="{{ url_for('confirm_session') }}" autocomplete="off" novalidate onsubmit="formLoading()">
+        
+                            {{ form.hidden_tag() }}
+        
+                            <!-- Name -->
+                            {{ render_field(form.name, show_label="true") }}
+        
+                            <!-- Tutee Email -->
+                            {{ render_field(form.tuteeEmail, show_label="true") }}
+        
+                            <!-- Tutor Email -->
+                            {{ render_field(form.tutorEmail, show_label="true") }}
+        
+                            <!-- Session Date -->
+                            {{ render_field(form.sessionDate, show_label="true") }} 
+        
+                            <!-- Session Hours -->
+                            {{ render_field(form.hours, show_label="true") }} 
+        
+                            <!-- Comments -->
+                            {{ render_field(form.comments, show_label="true") }} 
+        
+                            <!-- Submit -->
+                            <div class="form-group text-center">
+                                <button type="submit" class="submit-btn btn btn-lg">Confirm Session</button>
+                            </div>
+        
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

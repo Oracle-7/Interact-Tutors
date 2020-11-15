@@ -1,0 +1,343 @@
+/*=============== MASTHEAD ===============*/
+.masthead {
+    background: linear-gradient(#000B, #0008), url("../img/site/index/masthead.jpg");
+    background-size: cover;
+    min-height: 75vh;
+    color: #fff;
+    box-shadow: 0 0.3rem 0.5rem #0004;
+}
+
+.masthead-text h1 {
+    font-size: 3.8rem;
+    text-shadow: 0.1rem 0.1rem 0.5rem #0006;
+}
+
+.masthead-text .lead {
+    font-size: 1.6rem;
+    text-shadow: 0.1rem 0.1rem 0.5rem #0006;
+}
+
+.masthead-text .btn {
+    margin: 0.8rem 0.75rem;
+}
+
+
+/*=============== PROCESS ===============*/
+.heading-underline {
+    width: 4rem;
+    height: 0.25rem;
+    background-color: #52c4b4;
+}
+
+.process-step svg {
+    color: #52c4b4;
+}
+
+.process-step .arrow {
+    background-color: #52c4b4;
+    width: 5rem;
+    height: 0.3rem;
+    position: absolute;
+    right: -2.5rem;
+    top: 2.5rem;
+}
+
+.process-step .arrow::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    transform: translateY(-40%) rotate(45deg);
+    border-right: 0.25rem solid #52c4b4;
+    border-top: 0.25rem solid #52c4b4
+}
+
+.process-step p {
+    font-size: 1.215rem;
+}
+
+/*=============== WHY US ================*/
+#why-us {
+    background-image: linear-gradient(#000000C3, #000000C3),   url("../img/site/index/why_us.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.reason svg {
+    color: #52c4b4;
+}
+
+.reason p {
+    font-size: 1.15rem;
+}
+
+/*=============== SUBJECTS ===============*/
+#subjects {
+    padding-bottom: 2.5rem;
+}
+
+.subject {
+    margin: 3rem 0;
+    padding: 3rem;
+    box-shadow: 0.1rem 0.1rem 0.4rem #0003;
+}
+
+.subject-image {
+    display: flex;
+    align-items: center;
+}
+
+.subject-image img {
+    object-fit: cover;
+    max-height: 18rem;
+}
+
+.subject h3{
+    margin-bottom: 1rem;
+}
+
+.subject .list-group-item {
+    border-radius: 0 !important;
+    border-width: thin;
+}
+
+.subject .list-group-item:first-child {
+    border-top-left-radius: 0.25rem !important;
+}
+
+.subject .list-group-item:nth-child(2) {
+    border-top-right-radius: 0.25rem !important;
+}
+
+.subject .list-group-item:nth-last-child(2) {
+    border-bottom-left-radius: 0.25rem !important;
+}
+
+.subject .list-group-item:last-child {
+    border-bottom-right-radius: 0.25rem !important;
+}
+
+/*=============== CALL TO ACTION ===============*/
+.cta {
+    margin: 0;
+    padding: 3.8rem 2rem;
+}
+
+.cta-btn {
+    background-color: #52c4b4;
+    border-color: #52c4b4;
+    margin-top: 2rem;
+}
+
+.cta-btn:hover {
+    background-color: #40b2a2;
+}
+
+
+/*=============== MEDIA QUERIES ===============*/
+
+/* Everything smaller than extra large devices (large desktops, 1200px and up) */
+@media (max-width: 1200px) {
+
+    /* General */
+    h3 {
+        font-size: 2.4rem;
+    }
+
+    .btn-xl {
+        padding: .55rem 1.05rem;
+        font-size: 1.1rem;
+    }
+
+    /* Masthead */
+    .masthead-text h1 {
+        font-size: 3.3rem;
+    }
+
+    .masthead-text p {
+        font-size: 1.4rem !important;
+    }
+
+    .masthead-text .btn {
+        padding: .65rem 1.15rem;
+        font-size: 1.25rem;
+        line-height: 1.6;
+    }
+
+    /* About */
+    #about p {
+        font-size: 1.2rem !important;
+    }
+
+    /* Why Us */
+    .reason p {
+        font-size: 1.1rem !important;
+    }
+
+    /* Subjects */
+    .subject h3 {
+        font-size: 2.4rem;
+    }
+
+    #subjects p {
+        font-size: 1rem !important;
+    }
+
+    /* Jumbotron */
+    .jumbotron h3 {
+        font-size: 2.2rem;
+    }
+
+    .jumbotron p {
+        font-size: 0.1rem !important;
+    }
+
+    .cta-btn {
+        margin-top: 2rem;
+    }
+}
+
+/* Everything smaller than large devices (desktops, 992px and up) */
+@media (max-width: 992px) {
+
+    /* General */
+    h2 {
+        font-size: 2.7rem;
+    }
+
+    .btn-xl {
+        padding: .45rem .95rem;
+    }
+
+    .main-section {
+        padding: 6rem 0;
+    }
+
+    /* Masthead */
+    .masthead-text h1 {
+        font-size: 3.5rem;
+    } 
+
+    .masthead-text p {
+        font-size: 1.2rem !important;
+    }
+
+    /* Process */
+    .arrow {
+        display: none;
+    }
+
+    .process-step p {
+        font-size: 1.1rem;
+    }
+
+    /* About */
+    #about p {
+        font-size: 1.15rem !important;
+    }
+
+    /* Subjects */
+    .subject h3 {
+        font-size: 1.9rem !important;
+    }
+
+    .subject li {
+        font-size: 0.85rem;
+    }
+
+    /* Jumbotron */
+    .jumbotron h3 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Everything smaller than medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+
+    /* General */
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    h3 {
+        font-size: 1.9rem;
+    }
+
+    .btn-xl {
+        padding: .35rem .85rem;
+        font-size: 1rem;
+    }
+
+    .main-section {
+        padding: 5rem 0;
+    }
+
+    /* Masthead */
+
+    .masthead {
+        min-height: calc(100vh - 4.125rem);
+    }
+    .masthead-text h1 {
+        font-size: 3rem;
+    }
+
+    /* Process */
+    .process-step p {
+        font-size: 1rem;
+    }
+
+    /* About */
+    #about p {
+        font-size: 1.05rem !important;
+    }
+
+    /* Why Us */
+    .reason p {
+        font-size: 1.05rem !important;
+        margin-bottom: 1.3rem;
+    }
+
+    /* Subjects */
+    .subject h3 {
+        margin-top: 1rem;
+    }
+
+    #subjects p {
+        font-size: 0.85rem !important;
+    }
+
+    /* Jumbotron */
+    .jumbotron h3 {
+        font-size: 1.55rem;
+    }
+
+    .cta-btn {
+        margin-top: 1.5rem !important;
+    }
+}
+
+/* Everything smaller than for mall devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+
+    /* General */
+    .main-section {
+        padding: 3.5rem 0;
+    }
+
+    /* Why Us */
+    .reason p {
+        font-size: 1rem !important;
+    }
+}
+
+/* Very small devices */
+@media (max-width: 430px) {
+    .subject {
+        padding: 1.5rem;
+    }
+
+    .subject h3 {
+        font-size: 1.5rem !important;
+    }
+}

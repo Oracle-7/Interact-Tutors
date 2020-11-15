@@ -1,0 +1,201 @@
+/*=============== GENERAL ===============*/
+
+/* Override Bootstrap default */
+ul {
+    padding-inline-start: 0;
+}
+
+/*=============== MASTHEAD ===============*/
+
+.masthead {
+    height: 40vh;
+    width: 100vw;
+    background-color: #000319;
+}
+
+.masthead-inner {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(#000B, #0008), url("../img/site/volunteer/masthead.jpg");
+    background-size: cover;
+    background-position: 50% 15%;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 6vh), 0 100%);
+}
+
+
+/*=============== CONTENT ===============*/
+.content {
+    padding: 3rem 0.8rem;
+    background-color: #000319;
+    color: #fff;
+}
+
+.form-intro h5 {
+    font-size: 1.9rem;
+    color: #52c4b4;
+    font-weight: 400 !important;
+}
+
+.response-notice p {
+    color: #fff7;
+}
+
+/*=============== APPLICATION FORM ===============*/
+
+.application-form {
+    width: 65%;
+    margin: auto;
+}
+
+input.form-field:not( [type="file"] ):not(.submit-btn), textarea.form-field {
+    font-size: 1.05rem !important;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #52c4b4;
+    width: 100%;
+    color: #fff;
+}
+
+ul.form-field {
+    list-style: none;
+}
+
+textarea.form-field {
+    min-height: 5rem;
+    max-height: 10rem;
+    margin-bottom: 0.2rem;
+}
+
+.accordion {
+    margin-bottom: 2.5rem;
+}
+
+.subject .form-group {
+    margin-bottom: 0.5rem;
+}
+
+.subject ul {
+    margin-bottom: 0.2rem;
+}
+
+.form-field[type="file"] {
+    border: none;
+    margin-top: 0rem;
+    margin-bottom: 0.4rem;
+    outline: none;
+}
+
+.submit-btn {
+    background-color: #52c4b4;
+    margin-top: 0.5rem;
+}
+
+.submit-btn:hover {
+    background-color: #30a292;
+}
+
+.spinner-border {
+    margin-right: 0.5rem;
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+/*=============== SUBJECTS ===============*/
+.subject {
+    margin-bottom: 0.2rem;
+    outline: none;
+    text-align: center;
+    background-color: transparent;
+}
+
+.card-header {
+    width: 13rem;
+    background-color: #52c4b4;
+    border-radius: calc(0.25rem - 1px) !important;
+    padding: 0;
+}
+
+.card-header h2 {
+    font-size: 2rem !important;
+}
+
+.card-header .btn {
+    color: #000319;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+}
+
+.card-body {
+    text-align: left;
+    padding-left: 0;
+}
+
+/*=============== JCrop Section ===============*/
+
+.crop-text {
+    display: none;
+}
+
+.crop-table {
+    display: none;
+}
+
+.crop-row {
+    width: 90%;
+}
+
+.jcrop-holder img {
+    max-width: none;
+}
+
+#preview-container {
+    overflow: hidden;
+    margin-left: 0.5rem;
+    border: 0.15rem solid #fff;
+    border-radius: 0.2rem;
+    margin-left: 0;
+    margin-top: 1rem;
+}
+
+
+/*=============== MEDIA QUERIES ===============*/
+
+/* Everything smaller than extra large devices (large desktops, 1200px and up) */
+@media (max-width: 1200px) {
+    .masthead-inner {
+        background-position: top;
+    }
+}
+
+@media (max-width: 992px) {
+    .main {
+        overflow: auto;
+        background-color:#000319;
+    }
+}
+
+/* Everything smaller than medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+    .response-notice h6 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Everything smaller than for mall devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+    .application-form {
+        width: 90%;
+    }
+
+    .form-intro h5 {
+        font-size: 1.7rem;
+    }
+
+    textarea.form-field {
+        min-height: 5rem;
+        max-height: 20rem;
+        margin-bottom: 0.2rem;
+    }
+}

@@ -1,0 +1,146 @@
+<!-- Define navigation bar and active navigation link -->
+{% set navigation_bar = [
+    ('index', 'Home'),
+    ('tutors', 'Find a Tutor'),
+    ('volunteer', 'Volunteer'),
+    ('contact', 'Contact')
+] %}
+
+{% from "_formhelpers.html" import render_field %}
+{% set active_page = active_page|default('index') %}
+
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="author" content="Charles Zhu, Monta Vista High School">  
+        <meta name="theme-color" content="#52c4b4">
+        <meta name="description" content="Interact Tutors is a free online volunteer tutoring service providing the opportunity 
+                                            for high-performing high school students to tutor elementary, middle, and high schoolers.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Interact Tutors{% block title %}{% endblock %}</title>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <!-- Bootstrap-Select CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-select.min.css') }}">
+        <!-- JCrop CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.Jcrop.min.css') }}">
+        <!-- Style CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        {% block stylesheets %}{% endblock %}
+
+        <!-- jQuery -->
+        <script src="{{ url_for('static', filename='js/jquery-3.5.1.min.js') }}" defer></script>
+        <!-- jQuery Color-->
+        <script src="{{ url_for('static', filename='js/jquery.color.js') }}" defer></script>
+        <!-- Popper JS -->
+        <script src="{{ url_for('static', filename='js/popper.min.js') }}" defer></script>
+        <!-- Bootstrap JS    -->
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" defer></script>
+        <!-- Boostrap-Select JS -->
+        <script src="{{ url_for('static', filename='js/bootstrap-select.min.js') }}" defer></script>
+        <!-- Font Awesome JS -->
+        <script src="{{ url_for('static', filename='js/all.min.js') }}" defer></script>
+        <!-- JCrop JS -->
+        <script src="{{ url_for('static', filename='js/jquery.Jcrop.min.js') }}" defer></script>
+        <!-- Script JS -->
+        <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+
+        {% block scripts %}{% endblock %}
+
+        <!-- Lato Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+
+    </head>
+
+    <body>
+
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-expand-xl bg-transparent navbar-dark fixed-top px-5">
+            <div class="container-fluid">
+
+                <a href="/" class="navbar-brand">
+                    <img class="d-inline-block align-top" src="{{ url_for('static', filename='img/site/logo.png') }}" alt="Logo">
+                    <h3 class="ml-2">Interact Tutors</h3>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+
+                        {% for id, caption in navigation_bar %}
+                            <li class="nav-item">
+                                <a href="{{ url_for(id)|e }}" class="nav-link {% if id == active_page %} active {% endif %}">{{ caption|e }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <a href="{{ url_for('tutors') }}" class="nav-link navbar-cta">Get Started</a>
+                </div>
+
+            </div>
+        </nav>
+        <!-- End Navigation -->
+
+        <!-- Start Alerts -->
+        <div class="alerts">
+
+            <noscript>
+                <div class="alert alert-warning border fade show text-center m-0" role="alert">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    Warning: Javascript is disabled. This site may not work properly without it.
+                </div>
+            </noscript>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <header>
+                        {% for category, message in messages %}
+                            {% if category == "error" %}
+                                <div class="alert alert-danger border fade show text-center m-0" role="alert">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    {{ message }}
+                                </div>
+                            {% else %}
+                                <div class="alert alert-primary border fade show text-center m-0" role="alert">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    {{ message }}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </header>
+                {% endif %}
+            {% endwith %}
+
+        </div>
+        <!-- End Alerts -->
+
+        <main class="main">
+            {% block main %}{% endblock %}
+        </main>
+
+        <!-- Start Footer -->
+        <footer class="footer bg-dark text-white">
+            <div class="container">
+
+                <div class="col-12 text-center">
+                    <p>&copy; 2020 Interact Tutors. All Rights Reserved.</p>
+                    <a href="https://www.instagram.com/mvhsinteract/?hl=en" target="_blank"><i class="fab fa-instagram mx-2"></i></a>
+                    <a href="https://www.facebook.com/groups/150512414981446/" target="_blank"><i class="fab fa-facebook-f mx-2"></i></a>
+                    <a href="mailto: mvistainteract@gmail.com"><i class="far fa-envelope mx-2"></i></a>
+                </div>
+
+            </div>
+        </footer>
+        <!-- End Footer -->
+
+        <!-- Prevent CSS transitions on page load -->
+        <script> </script> 
+    </body>
+</html>
