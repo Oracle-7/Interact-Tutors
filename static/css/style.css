@@ -142,7 +142,8 @@ h6 {
     margin-left: 2.5rem;
 }
 
-.navbar-cta:hover {
+.navbar-cta:hover, 
+.navbar-cta:active {
     transform: scale(1.05);
     background-color: #52c4b4;
     color: #fff !important;
@@ -267,16 +268,15 @@ h6 {
     }
 }
 
-/* Bootstrap Breakpoints:
+/* Disable button and link hover effects on touch screens */
+@media (hover: none) {
+    .btn:hover, .a:hover {
+        background-color: inherit;
+        color: inherit;
+    }
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) { ... }
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) { ... }
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) { ... }
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { ... } */
+    .btn::before, .btn::after, 
+    .a::before, .a::after {
+        display: none;
+    }
+}
