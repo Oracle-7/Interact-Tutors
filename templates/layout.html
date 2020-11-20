@@ -18,48 +18,43 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Interact Tutors{% block title %}{% endblock %}</title>
+
         <meta name="author" content="Charles Zhu, Monta Vista High School">  
         <meta name="theme-color" content="#52c4b4">
         <meta name="description" content="Interact Tutors is a free online volunteer tutoring service providing the opportunity 
                                             for high-performing high school students to tutor elementary, middle, and high schoolers.">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Share link tags -->
+        <meta property="og:locale" content="en_US">
+        <meta property="og:site_name" content="Interact Tutors">
+        <meta property="og:description" content="Interact Tutors is a free online volunteer tutoring service providing the opportunity 
+                                            for high-performing high school students to tutor elementary, middle, and high schoolers.">
+        <meta property="og:url" content="www.interacttutors.com">
+        <!-- Google Analytics -->
+        <script type="text/javascript" async src='https://www.google-analytics.com/analytics.js'></script>
 
-        <title>Interact Tutors{% block title %}{% endblock %}</title>
-
-        <!-- Bootstrap CSS -->
+        <!-- CSS -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-        <!-- Bootstrap-Select CSS -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-select.min.css') }}">
-        <!-- JCrop CSS -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.Jcrop.min.css') }}">
-        <!-- Style CSS -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
         {% block stylesheets %}{% endblock %}
 
-        <!-- jQuery -->
+        <!-- Scripts -->
         <script src="{{ url_for('static', filename='js/jquery-3.5.1.min.js') }}" defer></script>
-        <!-- jQuery Color-->
         <script src="{{ url_for('static', filename='js/jquery.color.js') }}" defer></script>
-        <!-- Popper JS -->
         <script src="{{ url_for('static', filename='js/popper.min.js') }}" defer></script>
-        <!-- Bootstrap JS    -->
         <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" defer></script>
-        <!-- Boostrap-Select JS -->
         <script src="{{ url_for('static', filename='js/bootstrap-select.min.js') }}" defer></script>
-        <!-- Font Awesome JS -->
         <script src="{{ url_for('static', filename='js/all.min.js') }}" defer></script>
-        <!-- JCrop JS -->
         <script src="{{ url_for('static', filename='js/jquery.Jcrop.min.js') }}" defer></script>
-        <!-- Script JS -->
         <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
-
         {% block scripts %}{% endblock %}
 
-        <!-- Lato Font -->
+        <!-- Extra -->
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
-        <!-- Favicon -->
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" />
-
     </head>
 
     <body>
