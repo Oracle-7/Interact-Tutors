@@ -22,9 +22,12 @@ IMG_UPLOAD_FOLDER = os.path.abspath("./static/img/tutors/")
 app = Flask("__name__")
 app.secret_key = secrets.token_urlsafe(32)
 app.jinja_env.filters['is_string'] = is_string
+app.jinja_env.trim_blocks = True
+app.jinja_env.lstrip_blocks = True
 app.config["IMG_UPLOAD_FOLDER"] = IMG_UPLOAD_FOLDER
 app.config["BASIC_AUTH_USERNAME"] = os.getenv("BASIC_AUTH_USER")
 app.config["BASIC_AUTH_PASSWORD"] = os.getenv("BASIC_AUTH_PASS")
+
 
 basic_auth = BasicAuth(app)
 
