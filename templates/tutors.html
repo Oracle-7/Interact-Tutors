@@ -42,7 +42,7 @@
                                         {% endfor %}
                                     </optgroup>
                                 {% endfor %}
-
+                                
                             </select><button type="submit" name="search-submit" class="search-btn btn"><i class="fa fa-search"></i></button>
                             <input type="submit" style="display: none" />
                         </form>
@@ -72,7 +72,7 @@
 
                                 <div class="col-sm-2 text-center">
                                     <div class="process-circle d-inline-block">
-                                        <h3 class="process-number">1</h3>
+                                        <h4 class="process-number">1</h4>
                                     </div>
                                 </div>
                                 <div class="col-sm-10 d-flex align-items-center">
@@ -84,7 +84,7 @@
 
                                 <div class="col-sm-2 text-center">
                                     <div class="process-circle d-inline-block">
-                                        <h3 class="process-number">2</h3>
+                                        <h4 class="process-number">2</h4>
                                     </div>
                                 </div>
                                 <div class="col-sm-10 d-flex align-items-center">
@@ -96,7 +96,7 @@
 
                                 <div class="col-sm-2 text-center">
                                     <div class="process-circle d-inline-block">
-                                        <h3 class="process-number">3</h3>
+                                        <h4 class="process-number">3</h4>
                                     </div>
                                 </div>
                                 <div class="col-sm-10 d-flex align-items-center">
@@ -108,7 +108,7 @@
 
                                 <div class="col-sm-2 text-center">
                                     <div class="process-circle d-inline-block">
-                                        <h3 class="process-number">4</h3>
+                                        <h4 class="process-number">4</h4>
                                     </div>
                                 </div>
                                 <div class="col-sm-10 d-flex align-items-center">
@@ -152,7 +152,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">{{ tutor.name }}</h5>
                                         <h6 class="card-subtitle text-muted mb-2">{{ tutor.grade }}th Grade</h6>
-                                        {% if "{{ tutor.name }}"|length > 15 %}
+                                        {% if tutor.name|length > 15 %}
                                             <p class="card-text">{{ tutor.description|truncate(212, False, "...", 0) }}</p>
                                         {% else %}
                                             <p class="card-text">{{ tutor.description|truncate(246, False, "...", 0) }}</p>
@@ -177,7 +177,7 @@
                                         <div class="modal-body">
                                             <img class="modal-img-top" src="{{ url_for('static', filename='img/tutors/') ~ tutor.image }}" alt="Profile picture">
                                             <div class="modal-text">
-
+                                                
                                                 <!-- Description -->
                                                 <p class="modal-text-category">Description</p>
                                                 <p>{{ tutor.description }}</p>
@@ -199,28 +199,21 @@
                                                         {% endif %}
                                                     </ul>
                                                 {% endif %}
-
-                                                <!-- Qualifiications -->
+                                                
+                                                
+                                                <!-- Qualifications -->
                                                 {% if className %}
                                                     <p class="modal-text-category">Qualifications for {{ className }}</p>
                                                     <p>{{ tutor[subject ~ "Experience"] }}</p>
                                                 {% else %}
                                                     {% for subject in subjects %}
                                                         {% if tutor[subject ~ "Experience"] %}
-    
-                                                            {% if subject == "cs" %}
-                                                                <p class="modal-text-category">Qualifications for {{ subject|upper }}</p>
-                                                            {% elif subject == "speech" %}
-                                                                <p class="modal-text-category">Qualifications for Speech and Debate</p>
-                                                            {% else %}
-                                                                <p class="modal-text-category">Qualifications for {{ subject|capitalize }}</p>
-                                                            {% endif %}
+                                                            <p class="modal-text-category">Qualifications for {{ subject_display_names[subject] }}</p>
                                                             <p>{{ tutor[subject ~ "Experience"] }}</p>
-    
                                                         {% endif %}
                                                     {% endfor %}
                                                 {% endif %}
-
+                                                
                                             </div>
                                         </div>
                                         <div class="modal-footer">

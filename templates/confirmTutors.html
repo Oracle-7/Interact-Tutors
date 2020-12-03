@@ -128,16 +128,8 @@
                                                             <!-- Qualifications -->
                                                             {% for subject in subjects %}
                                                                 {% if tutor[subject ~ "Experience"] %}
-
-                                                                    {% if subject == "cs" %}
-                                                                        <p class="modal-text-category">Qualifications for {{ subject|upper }}</p>
-                                                                    {% elif subject == "speech" %}
-                                                                        <p class="modal-text-category">Qualifications for Speech and Debate</p>
-                                                                    {% else %}
-                                                                        <p class="modal-text-category">Qualifications for {{ subject|capitalize }}</p>
-                                                                    {% endif %}
+                                                                    <p class="modal-text-category">Qualifications for {{ subject_display_names[subject] }}</p>
                                                                     <p>{{ tutor[subject ~ "Experience"] }}</p>
-
                                                                 {% endif %}
                                                             {% endfor %}
 
@@ -250,16 +242,8 @@
                                                             <!-- Experience -->
                                                             {% for subject in subjects %}
                                                                 {% if tutor[subject ~ "Experience"] %}
-
-                                                                    {% if subject == "cs" %}
-                                                                        <p class="modal-text-category">Qualifications for {{ subject|upper }}</p>
-                                                                    {% elif subject == "speech" %}
-                                                                        <p class="modal-text-category">Qualifications for Speech and Debate</p>
-                                                                    {% else %}
-                                                                        <p class="modal-text-category">Qualifications for {{ subject|capitalize }}</p>
-                                                                    {% endif %}
+                                                                    <p class="modal-text-category">Qualifications for {{ subject_display_names[subject] }}</p>
                                                                     <p>{{ tutor[subject ~ "Experience"] }}</p>
-
                                                                 {% endif %}
                                                             {% endfor %}
 
@@ -373,16 +357,8 @@
                                                             <!-- Experience -->
                                                             {% for subject in subjects %}
                                                                 {% if tutor[subject ~ "Experience"] %}
-
-                                                                    {% if subject == "cs" %}
-                                                                        <p class="modal-text-category">Qualifications for {{ subject|upper }}</p>
-                                                                    {% elif subject == "speech" %}
-                                                                        <p class="modal-text-category">Qualifications for Speech and Debate</p>
-                                                                    {% else %}
-                                                                        <p class="modal-text-category">Qualifications for {{ subject|capitalize }}</p>
-                                                                    {% endif %}
+                                                                    <p class="modal-text-category">Qualifications for {{ subject_display_names[subject] }}</p>
                                                                     <p>{{ tutor[subject ~ "Experience"] }}</p>
-
                                                                 {% endif %}
                                                             {% endfor %}
 
