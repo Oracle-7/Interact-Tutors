@@ -83,6 +83,8 @@ class TutorApplicationForm(FlaskForm):
     ])  
 
     grade = RadioField("Grade", [DataRequired("Must choose a grade")], choices=[
+        ("7", "7"),
+        ("8", "8"),
         ("9", "9"),
         ("10", "10"),
         ("11", "11"),
@@ -157,7 +159,7 @@ class TutorApplicationForm(FlaskForm):
 
     extra = TextAreaField("Anything else you want to let us know?", [Optional(), length(max = 300)])
 
-    image = FileField("Please attach a image of yourself in good lighting (you may see our website's tutor page for examples). Allowed formats are .jpg, .jpeg, and .png.",
+    image = FileField("Please attach an image of yourself in good lighting (you may see our website's tutor page for examples). Allowed formats are .jpg, .jpeg, and .png.",
         [FileRequired("Please attach an image of yourself")])
 
     x = HiddenField()
