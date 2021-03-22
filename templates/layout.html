@@ -10,11 +10,7 @@
 {% set active_page = active_page|default('index') %}
 
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
+<html lang="en-US">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,10 +25,17 @@
         <meta property="og:locale" content="en_US">
         <meta property="og:site_name" content="Interact Tutors">
         <meta property="og:description" content="Interact Tutors is a free online volunteer tutoring service providing the opportunity 
-                                            for high-performing high school students to tutor elementary, middle, and high schoolers.">
+                                            for high-performing middle and high school students to tutor elementary, middle, and high schoolers.">
         <meta property="og:url" content="www.interacttutors.com">
         <!-- Google Analytics -->
-        <script type="text/javascript" async src='https://www.google-analytics.com/analytics.js'></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W0Y71H6B0"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-9W0Y71H6B0');
+        </script>
 
         <!-- CSS -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
